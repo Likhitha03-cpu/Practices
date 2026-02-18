@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #ecom {
+            display: flex;
+        }
+
+        #cart {
+            border: 1px solid;
+            width: 26%
+        }
+
+        #products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            width: 70%;
+        }
+
+        #products div {
+            width: 150px;
+            text-align: center;
+            box-shadow: 1px 1px 3px 1px;
+            border-radius: 10px;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #products div img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="d2"></h1>
+    <h3>products</h3>
+    <div id="ecom">
+
+        <div id="products">
+        </div>
+        <div id="cart">
+            <h3>Cart</h3>
+            <ul id="cartList">
+
+            </ul>
+        </div>
+    </div>
+    <button onclick="nextset()">Next</button>
+    <script>
+        var s = 0;
+         var price=0;
+        var cartItems = [];
+        function genTable(products) {
+            products.forEach(function (product) {
+                var productCard = document.createElement("div")
+                var productImg = document.createElement("img")
+                productImg.src = product.thumbnail
+                console.log(product)
+                productCard.appendChild(productImg)
+                var productTitle = document.createElement("h4")
+                productTitle.innerText = product.title
+                productCard.appendChild(productTitle)
+                var productDesc = document.createElement("p")
+                productDesc.innerText = product.description
+                productCard.appendChild(productDesc)
+                var price=document.createElement("h4")
+                price.innerText = product.price+"$"
+                productCard.appendChild(price)
+                var addToCartBtn = document.createElement("button")
+                addToCartBtn.innerText = 'Add To Cart'
+                addToCartBtn.onclick = function () { addToCart(product) }
+                productCard.appendChild(addToCartBtn)
+
+                document.getElementById('products').appendChild(productCard)
+                 price=product.price;
+                
+            })
+        }
+        function addToCart(item) {
+            cartItems.push(item)
+         
+            genCart();
+        }
+
+        function genCart() {
+            var count=0;
+            document.getElementById("cartList").innerHTML = ""
+            cartItems.forEach(function (item) {
+                var cli = document.createElement("li")
+                cli.innerText = item.title
+                
+                var addele=document.createElement("button")
+                addele.innerText = " +" ;
+                addele.onclick=function(){
+                    count++;
+                    var v=count;
+                    noofitem.innerText =count;
+                    price=price**count;
+                    cost.innerText = " Price: " + price + "$"
+                    }
+              cli.appendChild(addele)
+                  var noofitem=document.createElement("span")
+               
+noofitem.innerText =count;
+                cli.appendChild(noofitem)
+            
+                var removeitem=document.createElement("button")
+                removeitem.innerText = " - " ;
+                removeitem.onclick=function(){
+                    count--;
+                    noofitem.innerText =count;
+                    price=price/count;
+                    cost.innerText = " Price: " + price + "$"
+
+                    }
+                cli.appendChild(removeitem)
+                  
+                var cost=document.createElement("h4")
+                cost.innerText = " Price: " + item.price + "$"
+                cli.appendChild(cost)
+                // cli.innerText += " - " + item.price
+                document.getElementById("cartList").appendChild(cli)
+            })
+        }
+
+        
+        function getProducts() {
+            axios.get("https://dummyjson.com/product?limit=40&skip=100")
+                .then(function (res) { genTable(res.data.products); })
+            console.log("HI");
+        }
+        function nextset() {
+            s = s + 10;
+            getProducts();
+        }
+
+        getProducts()
+       
+    </script>
+</body>
+
+</html>

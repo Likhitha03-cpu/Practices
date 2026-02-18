@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Media Print Example</title>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        .print-btn {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+        }
+
+        /* PRINT STYLE */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .print-btn {
+                display: none;   /* Hide button while printing */
+            }
+
+            h1 {
+                color: black;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Media Print Example</h1>
+    <p>This content will be printed.</p>
+
+    <button class="print-btn" onclick="window.print()">Print Page</button>
+
+</body>
+</html>

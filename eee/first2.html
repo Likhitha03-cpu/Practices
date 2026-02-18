@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <button onclick="toggle()" id="btn">Toggle</button>
+     <span id="d1"></span>
+</head>
+<body>
+    <script>
+      var i=0;
+      function toggle(){
+        var a=document.createElement("d1");
+       
+        // var b=document.createElement("h4");
+          if(i==0){
+              
+           
+                // var a=document.createElement("h4");
+                a.innerHTML="True";
+             
+               
+                i=1;
+            }
+              
+          else{
+               
+                //  var b=document.createElement("h4");
+                a.innerHTML="False";
+           
+               i=0;
+            //    a.innerHTML="";
+                //  a.innerText="";
+            }
+            document.getElementById("d1").innerHTML=a.innerHTML;
+      }
+      toggle();
+    </script>
+</body>
+</html>

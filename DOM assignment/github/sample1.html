@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Cricket Scoreboard</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2e6d2e;
+            /* background: linear-gradient(to bottom, #0f9b0f, #006400); */
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #111;
+            padding: 15px;
+            margin: 0;
+            /* letter-spacing: 2px; */
+        }
+
+        .scoreboard {
+            background: #000;
+            width: 350px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 15px;
+            /* box-shadow: 0 0 20px lime; */
+        }
+
+        .main-score {
+            font-size: 40px;
+            font-weight: bold;
+            color: #00ff00;
+        }
+
+        .score-line {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ccc;
+            min-height: 25px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .run { background-color: #1e90ff; color: white; }
+        .wicket { background-color: red; color: white; }
+        .extra { background-color: orange; color: white; }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>🏏 LIVE CRICKET SCOREBOARD 🏏</h1>
+
+    <div class="scoreboard">
+        <div id="score" class="main-score">0 / 0</div>
+        <div id="over" class="score-line"></div>
+    </div>
+
+    <div class="buttons">
+        <button class="run" onclick="addRun(0)">Dot</button>
+        <button class="run" onclick="addRun(1)">1</button>
+        <button class="run" onclick="addRun(2)">2</button>
+        <button class="run" onclick="addRun(3)">3</button>
+        <button class="run" onclick="addRun(4)">4</button>
+        <button class="run" onclick="addRun(6)">6</button>
+        <button class="wicket" onclick="addWicket()">W</button>
+        <button class="extra" onclick="addExtra('wd')">Wide</button>
+        <button class="extra" onclick="addExtra('nb')">No Ball</button>
+    </div>
+
+    <script>
+        let runs = 0;
+        let wickets = 0;
+        let scoreLine = "";
+
+        function addRun(value) {
+            runs += value;
+            scoreLine += value === 0 ? " . " : " " + value + " ";
+            updateScore();
+        }
+
+        function addWicket() {
+            wickets++;
+            scoreLine += " W ";
+            updateScore();
+        }
+
+        function addExtra(type) {
+            runs++;
+            scoreLine += type === "wd" ? " 1wd " : " 1nb ";
+            updateScore();
+        }
+
+        function updateScore() {
+            document.getElementById("score").innerHTML = runs + " / " + wickets;
+            document.getElementById("over").innerHTML = scoreLine;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <table border="1" width="100px" height="100px" id="d1">
+        <th></th>
+    </table>
+    <button onclick="Toggle()" id="d2">Toggle</button>
+</head>
+<body>
+    <script>
+     var i=0;
+     function Toggle(){
+        
+        if(i==0){
+            i=1;
+            var d=document.getElementById("d1");
+             d.style.backgroundColor="Yellow";
+        // var btn=document.getElementById("d2");
+        //    btn.style.backgroundColor="red";
+            // document.body.appendChild(d);
+            // document.body.appendChild(btn);
+        }
+        else{
+            i=0;
+            var d=document.getElementById("d1");
+             d.style.backgroundColor="White";
+        // var btn=document.getElementById("d2");
+           
+        //     btn.style.backgroundColor="White";
+            // document.body.appendChild(d);
+            // document.body.appendChild(btn);
+        }
+        // document.body.appendChild(d);
+        // document.body.appendChild(btn);
+        //  Toggle();
+     } 
+    
+    </script>
+</body>
+</html>

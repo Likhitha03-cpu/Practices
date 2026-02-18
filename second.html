@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<script>>, initial-scale=1.0">
+    <title>Document</title>
+    <h1 id="d1">Count</h1>
+    <button onclick="increment()">increment</button>
+    <button onclick="decrement()">decrement</button>
+    <button onclick="reset()">reset</button>
+    <button onclick="alert(count)">show count</button>
+    <button onclick="undo()">undo</button>
+    <button onclick="redo()">redo</button>
+</head>
+<body>
+    <script>
+      var count=0;
+      function increment(){
+        count++;
+        document.getElementById("d1").innerHTML= "Count: " + count;
+
+      }
+      function decrement(){
+        count--;
+        document.getElementById("d1").innerHTML="Count: " + count;
+      }
+
+      function reset(){
+        count=0;
+        document.getElementById("d1").innerHTML="Count: " + count;
+      }
+      function alertCount(){
+        alert(count);
+      }
+      function undo(){
+        if(count>0){
+          count--;
+        }
+        else if(count<0){
+          count++;
+        }
+        document.getElementById("d1").innerHTML="Count: " + count;
+      }
+      function redo(){
+        if(count>=0){
+          count++;
+        }
+        else if(count<0){
+          count--;
+        }
+        document.getElementById("d1").innerHTML="Count: "+count;
+      }
+    </script>
+</body>
+</html>

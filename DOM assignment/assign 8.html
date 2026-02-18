@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<button onclick="like()" id="d3">like</button>
+<h1 id="d1"></h1>
+<br><br>
+<button onclick="dislike()" id="d4">dislike</button
+<h1 id="d2"></h1>
+<body>
+    <script>
+        var i=0;
+        var j=0;
+        function like(){
+            i=i+1;
+            document.getElementById("d1").innerHTML = i;
+
+            // document.appendChild(i);
+         
+
+        }
+        document.getElementById("d3").style.background="green";
+        document.getElementById("d4").style.background="red";
+        function dislike(){
+            j=j+1;
+            document.getElementById("d2").innerHTML = j;
+        }
+    </script>
+</body>
+</html>

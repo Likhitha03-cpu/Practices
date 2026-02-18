@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <button onclick="colour()" id="btn"></button>
+</head>
+
+<body>
+    <script>
+        i=0;
+// var d=document.createElement("button");
+// console.log(d);
+
+// // d.innerHTML="White";
+// // d.style.backgroundColor="White";
+// document.body.appendChild(d);
+
+// d.style.color="black";
+
+function colour(){
+    var d=document.getElementById("btn");
+    // document.body.appendChild(d);
+    if(i==0){
+        i=1;
+    d.innerHTML="White";
+    d.style.color="black";
+    d.style.backgroundColor="White";
+    document.body.appendChild(d);
+    }
+    else{
+        i=0;
+    d.innerHTML="Green";
+    d.style.color="black";
+    d.style.backgroundColor="green";
+    document.body.appendChild(d);
+    }
+}
+colour();
+    </script>
+</body>
+</html>

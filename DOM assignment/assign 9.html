@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="pink">
+    <h1> Add Students</h1>
+    <input type="text" id="name" placeholder="Enter Name" height="500px" width="500px">
+    <button onclick="addStudent()" id="d2">Add Student</button>
+    <ul id="d1"></ul>
+    <script>
+        function addStudent(){
+            var name=document.getElementById("name").value;
+            if(name){
+                var li=document.createElement("li");
+                li.innerText=name;
+                document.getElementById("d1").appendChild(li);
+                // document.getElementById("name").value="";
+            }
+        }
+    </script>
+</body>
+</html>

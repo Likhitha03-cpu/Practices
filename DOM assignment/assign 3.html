@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     
+    <table border="1" width="100px" height="100px" id="d1">
+        <th></th>
+    </table>
+    <button onclick="On()" id="d2">On</button>
+    <button onclick="Off()" id="d3">Off</button>
+   
+</head>
+<body>
+    <script>
+        var i=0;
+        function On() {
+            var d=document.getElementById("d1");
+            d.style.border = "1px solid black";
+            d.style.backgroundColor = "Yellow";
+            var btn1=document.getElementById("d2");
+            btn1.style.backgroundColor="red";
+            var btn2=document.getElementById("d3");
+            btn2.style.backgroundColor="White";
+            //  btn2.style.backgroundColor="white";
+            // var d=document.getElementById("d1");
+            // // d.bordercolor="black";
+            // d.style.backgroundColor = "Yellow";
+            // var btn=document.getElementById("d2");
+            // btn.style.backgroundColor="red";
+            // if(i==1){
+            //     i=1;
+            //     btn.style.backgroundColor="White";
+            //     off()
+            // }
+            
+        //    off(btn)
+            // btn.style.backgroundColor="white";
+        
+            
+        }
+        
+        function Off() {
+            // btn.style.backgroundColor="white";
+            var d=document.getElementById("d1");
+            d.style.backgroundColor = "White";
+            var btn1=document.getElementById("d2");
+            btn1.style.backgroundColor="White";
+            var btn2=document.getElementById("d3");
+            btn2.style.backgroundColor="red";
+            // on(btn2)
+            
+            // if(i==0){
+            //     i=0;
+            //     btn2.style.backgroundColor="White";
+            //      on();
+            // }
+           
+            // document.body.style.backgroundColor = "White";
+           
+        }
+        // document.appendChild(d);
+       
+        // document.appendChild(btn2);
+    </script>
+</body>
+</html>
